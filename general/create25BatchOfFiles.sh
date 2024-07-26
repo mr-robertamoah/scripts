@@ -29,7 +29,7 @@ start_num=0
 name_count=$(echo "./$file_name" | wc -c)
 
 # find the existing files, in the current working directory, with the same naming structure and extract the number portion of the file with the highest number
-prev_num=$(find . -type f -regex "./$file_name[0-9]+" -empty -maxdepth 1 | sort -V | tail -1 | cut -b $name_count-)
+prev_num=$(find . -maxdepth 1 -type f -regex "./$file_name[0-9]+" -empty | sort -V | tail -1 | cut -b $name_count-)
 
 # check if the prev_num variable only contains numbers
 if [[ $prev_num =~ ^[0-9]+$ ]];
