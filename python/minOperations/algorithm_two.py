@@ -1,6 +1,9 @@
-"""algorithm one"""
+"""
+get the minimum number of operations for Copy All and Paste operations
+"""
 
 def minOperations(n):
+    
     if n < 2:
         return 0
     
