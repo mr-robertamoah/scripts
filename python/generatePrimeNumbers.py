@@ -1,24 +1,14 @@
+"""
+this module contain functions and statements that helps to
+collect integer and file name to write prime numbers between
+1 and the integer to the given file.
+"""
+
+
 from typing import List
 
-def getPrimeNumbers(n: int) -> List[int]:
-    """
-    get a list of integers which are prime numbers
-    between 1 and n
-    """
-    prime_nums = [] # for collecting the prime numbers
 
-    # loop through the numbers from 2 to the 1 less n
-    for i in range(2, n):
-        # check if the number is a prime number
-        if is_prime(i):
-            # append to the list if it is a prime number
-            prime_nums.append(i)
-
-    # return the final list of prime numbers
-    return prime_nums
-
-
-def is_prime(i: int) -> bool:
+def isPrime(i: int) -> bool:
     """
     check if there is a valid divisor for i apart from
     1 and i
@@ -37,6 +27,24 @@ def is_prime(i: int) -> bool:
             return False
 
     return True
+
+
+def getPrimeNumbers(n: int) -> List[int]:
+    """
+    get a list of integers which are prime numbers
+    between 1 and n
+    """
+    prime_nums = [] # for collecting the prime numbers
+
+    # loop through the numbers from 2 to the 1 less n
+    for i in range(2, n):
+        # check if the number is a prime number
+        if isPrime(i):
+            # append to the list if it is a prime number
+            prime_nums.append(i)
+
+    # return the final list of prime numbers
+    return prime_nums
 
 
 def writeToFile(filename: str, content: list) -> None:
